@@ -1,0 +1,10 @@
+# Changelog
+
+## 0.1.0 — 2026-10-03
+
+脚手架诞生（初始化）。本版无业务能力，只建立开发仓。
+
+- 版本控制：根目录 `VERSION` + git
+- 基线：`governance/baselines/0.1.0/`
+- 升级记录：`CR-000-init`、`upgrade-to-0.1.0.md`
+- 变更门禁与打包：见 `governance/`

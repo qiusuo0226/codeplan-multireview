@@ -1,0 +1,17 @@
+{
+  "name": "codeplan-multireview",
+  "displayName": "代码方案多审",
+  "version": "0.1.0",
+  "schemaVersion": "0.1.0",
+  "description": "开发需求时描述一个问题。扫过代码仓后发现要改代码或有 bug，就问要不要出一版升级方案。同意后再出具体方案，并按已确认的思路执行。出方案时由一个助手写方案，另两个助手基于同一批代码仓先自己扫一遍再审核，把审核补进方案末尾，可以多轮。",
+  "license": "MIT",
+  "entry": "SKILL.md",
+  "referencesDir": "references",
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-10-03",
+      "summary": "初始化开发仓。"
+    }
+  ]
+}
