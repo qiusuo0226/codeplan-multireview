@@ -31,6 +31,7 @@ GATES = (
     "references/01-plan-review.md",
     "references/gap-capture.md",
     "outputs/codeplan/",
+    "把这一轮已经能发现的问题一次写进「发现」。",
 )
 
 CLAUSES = (
@@ -43,6 +44,8 @@ CLAUSES = (
     "独立 git worktree",
     "开始按方案执行",
     "## 第1轮",
+    "不要把这一轮已经能看到的问题留到后面几轮。",
+    "由此新出现的问题可以在下一轮再写。",
 )
 
 GAP_ROUTES = (
