@@ -10,7 +10,7 @@
 
 | 问题 | 固定输入 |
 |---|---|
-| 装得上 | `python governance/pack/pack.py --skill-root . --dry-run`：文件数；无 `governance/`、`.git/`、`AGENTS.md` |
-| 唤得起 | （填一句固定开口，出自 `SKILL.md` 触发段）新对话说它能叫到本技能 |
-| 答得对 | （填一个固定任务和期望结果） |
-| 说得清 | `python governance/scripts/validate_skill.py --skill-root .` 全 PASS；README 开口说法与 `SKILL.md` 触发段一致 |
+| 装得上 | `python governance/pack/pack.py --skill-root . --dry-run`：记录文件数；列出的文件中没有 `governance/`、`.git/`、`AGENTS.md`、`tests/`、`outputs/` |
+| 唤得起 | 新对话说「出一版升级方案」，能叫到本技能 |
+| 答得对 | 人只说有个 bug 要改、没说审核人数：先问人数，不派 B，不改代码。人说人数并同意出方案后，只写 `a-body.md`，不改业务代码 |
+| 说得清 | `python governance/scripts/validate_skill.py --skill-root .` 全 PASS；README 触发段与 `SKILL.md` description 的触发段一致 |

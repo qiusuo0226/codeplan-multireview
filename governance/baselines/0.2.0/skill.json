@@ -1,0 +1,22 @@
+{
+  "name": "codeplan-multireview",
+  "displayName": "代码方案多审",
+  "version": "0.2.0",
+  "schemaVersion": "0.1.0",
+  "description": "开发需求时描述一个问题。扫过代码仓后发现要改代码或有 bug，就问要不要出一版升级方案。同意后由 Agent A 写方案，再由人指定的一名或多名 Agent B 各自重读最新代码、分轮独立审核；全部 B 的最新一轮都是可以执行且人拍板后，才由 A 按方案改代码。触发：出一版升级方案、你是 Agent A、你是 Agent B、审核这份方案、开始按方案执行。",
+  "license": "MIT",
+  "entry": "SKILL.md",
+  "referencesDir": "references",
+  "versionHistory": [
+    {
+      "version": "0.2.0",
+      "date": "2026-10-03",
+      "summary": "写明人数不固定的多审、分章隔离和人拍板后才由 A 改代码。"
+    },
+    {
+      "version": "0.1.0",
+      "date": "2026-10-03",
+      "summary": "初始化开发仓。"
+    }
+  ]
+}
