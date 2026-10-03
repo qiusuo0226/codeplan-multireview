@@ -97,6 +97,8 @@ python governance/pack/pack.py --skill-root . --dry-run
 
 zip 名 `{name}-Skill-v{VERSION}.zip`（英文名，不用中文显示名）。排除名单以 `governance/pack.ini` 为准。默认不包含 `.git/`、`governance/`、`tests/`、`AGENTS.md`。
 
+发布包只留在开发仓本地。任何时候都不 `git add`、不提交、不推远程。`.gitignore` 已忽略 `*.zip` 与 `*.tar.gz`，不要用 `-f` 把它们加进去。
+
 ## 11. 发布审计
 
 ```
