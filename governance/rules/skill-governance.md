@@ -113,7 +113,7 @@ python governance/scripts/audit_release.py
 
 ## 13. 根目录白名单
 
-根上只允许：`SKILL.md`、`skill.json`、`VERSION`、`CHANGELOG.md`、`README.md`、`LICENSE`、`AGENTS.md`、`.gitignore`、`.git/`、`assets/`、`governance/`、`references/`、`scripts/`、`tests/`、`outputs/`。
+根上只允许：`SKILL.md`、`skill.json`、`VERSION`、`CHANGELOG.md`、`README.md`、`LICENSE`、`AGENTS.md`、`.gitignore`、`.git/`、`assets/`、`examples/`、`governance/`、`references/`、`scripts/`、`tests/`、`outputs/`。
 
 `outputs/` 是运行时生成物目录（懒建）。其下 `skill-gaps/` 稿件不须每次写入 AP-4。禁止把缺口稿散落在根上。新的其它根文件须先写进 AP-4。收编前已存在的额外根文件可保留，必须写进出生 CR。
 
