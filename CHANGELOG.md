@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0 — 2026-10-05
+
+目标：标准业务方案必须自带问题语境、修改空间和执行顺序。Agent B 不要求安装本技能，只按方案文末的骨架追加一轮。
+
+- 改了 `SKILL.md`、`references/01-plan-review.md`、`README.md`、`tests/test_multireview_contract.py`、`VERSION`、`skill.json`
+- 没改 `references/gap-capture.md`、`governance/rules/`
+- 代码仓只授权阅读。修改空间只授权修改，且必须落在代码仓内
+- 测了 `validate_skill.py`、`tests/run_smoke.py`、`pack.py --dry-run`。固定四问的当次结果在 `governance/regression-reports/RR-20261005-001.md`
+- 回滚：分发包回到 `governance/baselines/0.2.1/`，版本回到 0.2.1。基线一旦生成就不改、不删。发布包不提交
+
 ## 0.2.1 — 2026-10-03
 
 目标：Agent B 每一轮把当时已经能发现的问题一次写完；Agent A 改过方案或点名代码变了之后，新出现的问题可以在下一轮再提。
