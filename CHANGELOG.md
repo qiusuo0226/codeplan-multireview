@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.1 — 2026-10-08
+
+目标：审核写不进指定文件时必须声明没落盘；人指出有效一轮并拍板后，Agent A 按方案改代码。
+
+- 改了 `SKILL.md`、`references/01-plan-review.md`、`README.md`、`examples/04-你是AgentB.md`、`examples/06-开始按方案执行.md`、`tests/test_multireview_contract.py`、`VERSION`、`skill.json`
+- 没改 `references/gap-capture.md`、`governance/rules/`、触发短语
+- 指定文件末尾没有本轮时，回复第一句是「没有写入」。格式样例里的「可以执行」不算一轮。没有可核对的一轮，或结论是「不可执行」时，不改代码
+- 测了 `validate_skill.py`、`tests/run_smoke.py`、`pack.py --dry-run`。固定四问的当次结果在 `governance/regression-reports/RR-20261008-001.md`
+- 回滚：分发包回到 `governance/baselines/0.3.0/`，版本回到 0.3.0。基线一旦生成就不改、不删。发布包不提交
+
 ## 0.3.0 — 2026-10-05
 
 目标：标准业务方案必须自带问题语境、修改空间和执行顺序。Agent B 不要求安装本技能，只按方案文末的骨架追加一轮。
