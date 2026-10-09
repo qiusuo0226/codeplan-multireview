@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.0 — 2026-10-09
+
+目标：业务方案必须写出回归验证和 bug修复验证。改完代码后按验收验证。执行里的代码一行一中文注释。
+
+- 改了 `SKILL.md`、`references/01-plan-review.md`、`README.md`、`examples/03-你是AgentA.md`、`examples/06-开始按方案执行.md`、`examples/README.md`、`tests/test_multireview_contract.py`、`VERSION`、`skill.json`
+- 没改 `references/gap-capture.md`、`governance/rules/`、触发短语、`examples/08-完整方案-登录与返参解密.md`
+- 验收固定两节。升级改造写本次结果和关联业务。报错或 bug 只写问题链路。执行里每一行要落地的代码上一行中文注释。改完按验收逐条验证
+- 测了 `validate_skill.py`、`tests/run_smoke.py`、`pack.py --dry-run`。固定四问的当次结果在 `governance/regression-reports/RR-20261009-001.md`
+- 回滚：分发包回到 `governance/baselines/0.3.1/`，版本回到 0.3.1。基线一旦生成就不改、不删。发布包不提交
+
 ## 0.3.1 — 2026-10-08
 
 目标：审核写不进指定文件时必须声明没落盘；人指出有效一轮并拍板后，Agent A 按方案改代码。

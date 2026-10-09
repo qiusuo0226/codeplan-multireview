@@ -39,6 +39,9 @@ GATES = (
     "没有写入",
     "格式样例里的「可以执行」不算一轮。",
     "人没有指出任何一轮时，不改代码。",
+    "方案「验收」必须有「回归验证」和「bug修复验证」。",
+    "简洁直译。",
+    "按方案改完代码后，按验收逐条验证再结束。",
 )
 
 CLAUSES = (
@@ -62,6 +65,12 @@ CLAUSES = (
     "没有写入",
     "格式样例里的「可以执行」不算一轮。",
     "人没有指出任何一轮时，不改代码。",
+    "### 回归验证",
+    "### bug修复验证",
+    "怎样确认它仍正常运转且逻辑没有改变。",
+    "问题链路从哪到哪",
+    "每一行要落地的代码，正上方一行中文注释",
+    "改完后按「验收」逐条做，再结束。",
 )
 
 GAP_ROUTES = (
@@ -128,6 +137,10 @@ class MultireviewContractTest(unittest.TestCase):
         for item in GAP_ROUTES:
             self.assertIn(item, self.skill, item)
         self.assertIn("references/gap-capture.md", self.skill)
+
+    def test_readme_names_both_checks(self):
+        self.assertIn("回归验证", self.readme)
+        self.assertIn("bug修复验证", self.readme)
 
 
 if __name__ == "__main__":
