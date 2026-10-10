@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.1 — 2026-10-10
+
+目标：方案里已有的真实轮次就是审核。决定改代码前必须读完最后一轮，不再另要审核人数。
+
+- 改了 `SKILL.md`、`references/01-plan-review.md`、`README.md`、`examples/06-开始按方案执行.md`、`tests/test_multireview_contract.py`、`VERSION`、`skill.json`
+- 没改 `references/gap-capture.md`、`governance/rules/`、触发短语、十节名称、`examples/08-完整方案-登录与返参解密.md`、`examples/02-人数由你指定.md`
+- 指定文件在格式样例之后已经有真实轮次，或文首已经写了 reviewers 时，不再问审核人数。决定改代码前读完每一节，只用最后一节。对照修订必须等于当前 revision。骨架里没有覆盖五格的已有一轮不因此无效
+- 测了 `validate_skill.py`、`tests/run_smoke.py`、`pack.py --dry-run`。固定四问的当次结果在 `governance/regression-reports/RR-20261010-002.md`
+- 回滚：分发包回到 `governance/baselines/0.5.0/`，版本回到 0.5.0。基线一旦生成就不改、不删。发布包不提交
+
 ## 0.5.0 — 2026-10-10
 
 目标：业务方案必须核对链路注释，逻辑变化时补日志，自审写出安全评估。B 每一轮用覆盖五格填实链路、注释、日志、安全和更好实现，空着不算一轮。

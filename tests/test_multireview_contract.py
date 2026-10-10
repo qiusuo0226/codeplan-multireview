@@ -38,7 +38,16 @@ GATES = (
     "修改空间之外的文件不得写成要改的对象。",
     "没有写入",
     "格式样例里的「可以执行」不算一轮。",
-    "人没有指出任何一轮时，不改代码。",
+    "文首已经写了 reviewers，或指定文件在格式样例之后已经有真实轮次时，不再问审核人数。",
+    "文首 reviewers 为空，也不等于没有审核。",
+    "还没有指定方案文件，且人没给出人数时，才问人数，不建目录，不派 B，不改代码。",
+    "必须读完格式样例之后的每一节「## 第N轮」。",
+    "较早一轮的对照修订不等于当前 revision，不因此停读。",
+    "人不必再指出，也不必把该轮贴进对话。",
+    "交给审核骨架里没有「### 覆盖」的已有一轮，不因缺少安全评估、反问或覆盖而无效。",
+    "不得把较早一节说成文件末尾。",
+    "下面关于安全评估、反问和覆盖的不算一轮，只用于交给审核骨架里已经写有「### 覆盖」之后新追加的一轮。",
+    "指定文件里已经有真实轮次，或文首已经写了 reviewers 时，不再问审核人数。还没有指定方案文件时，人数仍由人指定。",
     "方案「验收」必须有「回归验证」和「bug修复验证」。",
     "简洁直译。",
     "按方案改完代码后，按验收逐条验证再结束。",
@@ -82,7 +91,18 @@ CLAUSES = (
     "修改空间之外的文件不得写成要改的对象",
     "没有写入",
     "格式样例里的「可以执行」不算一轮。",
-    "人没有指出任何一轮时，不改代码。",
+    "人没说人数、且指定文件在格式样例之后没有真实轮次：只问人数，不建目录，不派 B。已经有真实轮次时，见硬闸 2。",
+    "人数由人指定。人没说人数、且本文件在格式样例之后没有真实轮次时，不要开始审核。",
+    "决定能不能改代码之前，先按硬闸 5 读完格式样例之后的每一节。名单为空但文件有真实轮次时，用最后一节判断。",
+    "名单为空时不走这句，改按硬闸 5 用最后一节判断。",
+    "已经有真实轮次时，不因为名单为空而再问人数，也不因此不写代码。",
+    "必须读完格式样例之后的每一节「## 第N轮」。",
+    "同一文件里按顺序写下的多轮，用最后一节真实轮次，不问人用哪一轮。",
+    "人给出一个方案文件时，只看该文件最后一节真实轮次。",
+    "骨架里已经有「### 覆盖」之后新追加的一轮，仍要有安全评估、反问和覆盖五格，缺了不算这一轮。",
+    "对话里并列贴出的多轮没有说明用哪一轮时，先问，不改代码。",
+    "不得把较早一节说成文件末尾。",
+    "交给审核骨架里没有「### 覆盖」的已有一轮，不因缺少安全评估、反问或覆盖而无效。",
     "### 回归验证",
     "### bug修复验证",
     "怎样确认它仍正常运转且逻辑没有改变。",
@@ -150,6 +170,8 @@ class MultireviewContractTest(unittest.TestCase):
         for item in GATES:
             self.assertIn(item, self.skill, item)
         self.assertNotIn("本次不改的行不加，也不改它们已有的注释。", self.skill)
+        self.assertNotIn("人没有指出任何一轮时，不改代码。", self.skill)
+        self.assertNotIn("人没给出人数就问。", self.skill)
 
     def test_no_fixed_two_reviewers(self):
         for label, text in (
@@ -166,6 +188,16 @@ class MultireviewContractTest(unittest.TestCase):
         self.assertNotIn("0.1.0", self.procedure)
         self.assertIn("不把 B 的原话或复述写进", self.procedure)
         self.assertNotIn("本次不改的行不加，也不改它们已有的注释。", self.procedure)
+        for gone in (
+            "人没有指出任何一轮时，不改代码。",
+            "人只说「开始按方案执行」、对话里没有可核对的一轮全文时，不改代码。",
+            "在审名单为空时不写代码。",
+            "没有「安全评估」、没有「反问」或没有「覆盖」时不算一轮。",
+            "在审名单至少 1 名",
+            "人没说人数时不要开始审核。",
+            "人指出两轮以上且没有说明用哪一轮时，先问，不改代码。",
+        ):
+            self.assertNotIn(gone, self.procedure, gone)
 
     def test_gap_capture_unchanged_and_routed(self):
         live = (REPO / "references" / "gap-capture.md").read_bytes()
@@ -182,6 +214,8 @@ class MultireviewContractTest(unittest.TestCase):
         self.assertIn("bug修复验证", self.readme)
         self.assertIn("安全评估", self.readme)
         self.assertIn("反问", self.readme)
+        self.assertIn("还没有指定方案文件、人也没给出人数时，才问人数，不建目录。", self.readme)
+        self.assertNotIn("人没说出人数：只问人数，不建目录。", self.readme)
 
 
 if __name__ == "__main__":
