@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.2 — 2026-10-11
+
+目标：升级做完之后的核对，在同一会话里由另一个助手来做。对人只交一份九节编号清单。预期、范围、不改项和回归用例在删方案之前写进该版 CR 和 RR。
+
+- 改了 `governance/templates/upgrade-effect.md`、`governance/rules/upgrade-dual-agent.md`、`governance/rules/skill-governance.md`、`governance/templates/CR-template.md`、`governance/templates/RR-template.md`、`tests/test_upgrade_effect_contract.py`、`VERSION`、`skill.json`
+- 没改 `SKILL.md` 的硬闸和五句触发、`README.md`、`skill.json` 的 description、`references/`、`examples/`、0.5.1 的 CR 和 RR
+- 核对口令增加「审核一下升级结果」「审核升级结果」「已经升级完了」。执行者不写清单、不发进度。模板不再用满足、未满足、方案外
+- 测了 `validate_skill.py`、`tests/run_smoke.py`、`pack.py --dry-run`。固定四问的当次结果在 `governance/regression-reports/RR-20261011-001.md`
+- 回滚：分发包回到 `governance/baselines/0.5.1/`，版本回到 0.5.1。基线一旦生成就不改、不删。发布包不提交。不推远程
+
 ## 0.5.1 — 2026-10-10
 
 目标：方案里已有的真实轮次就是审核。决定改代码前必须读完最后一轮，不再另要审核人数。

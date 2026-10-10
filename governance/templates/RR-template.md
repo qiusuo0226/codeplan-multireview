@@ -36,6 +36,10 @@
 | Case ID | Failure | Suspected Cause | Required Action |
 |---|---|---|---|
 
+## 核对用回归
+
+## 核对用结果
+
 ## Conclusion
 
 - [ ] Passed, can release

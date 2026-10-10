@@ -16,15 +16,15 @@
 1. 写 AP：governance/planning/upgrade-plan-v{目标版本}.md（每周期 1 个；A 出方案，七章齐全）
 2. 路径 H：用户说「同意执行」或「执行升级」（可无 B 节）
    或路径 B：新对话「你是 Agent B，审核该 AP」→ 文末追加 B 节 → 仍须用户「同意执行」
-3. 建 CR：governance/change-requests/CR-YYYYMMDD-NNN.md（写明执行授权：人直接同意 / B 通过后人同意 / 人覆盖 B）
+3. 建 CR：governance/change-requests/CR-YYYYMMDD-NNN.md（写明执行授权：人直接同意 / B 通过后人同意 / 人覆盖 B）。CR 要有「## 核对用预期」「## 核对用范围」「## 核对用不改」
 4. 建 IA：governance/impact-analysis/IA-YYYYMMDD-NNN.md
 5. 按最小范围改文件
-6. 回归 → RR：固定四问（装得上 / 唤得起 / 答得对 / 说得清，输入见 tests/README.md，填上一版结果）+ 正 / 反 / 旧能力各至少 1 条
+6. 回归 → RR：固定四问（装得上 / 唤得起 / 答得对 / 说得清，输入见 tests/README.md，填上一版结果）+ 正 / 反 / 旧能力各至少 1 条。RR 要有「## 核对用回归」「## 核对用结果」
 7. 改根目录 VERSION → python governance/scripts/sync_version.py
 8. 更新 CHANGELOG.md
 9. 写升级记录：governance/migrations/upgrade-to-{版本}.md
 10. python governance/scripts/audit_release.py 必须通过
-11. 删除该版本 AP（含文末 B 审核节；内容已固化到 CR / CHANGELOG / 基线 / upgrade-to，不另存 B 副本）。此时已有的同版本 `upgrade-effect-v{版本}.md`：文首结论一行写入当版 RR 后一并删除。发版后才写出的核对单不靠这一步，见 `upgrade-dual-agent.md` 效果核对节
+11. 删除该版本 AP（含文末 B 审核节；内容已固化到 CR / CHANGELOG / 基线 / upgrade-to，不另存 B 副本）。此时已有的同版本 `upgrade-effect-v{版本}.md`：文首结论一行写入当版 RR 后一并删除。九节正文不另存。发版后才写出的核对单不靠这一步，见 `upgrade-dual-agent.md` 效果核对节
 12. python governance/scripts/snapshot_baseline.py（基线只增不改）
 13. python governance/pack/pack.py --skill-root .
 14. git tag v{版本}（有 git 才做；不擅自 push）
@@ -123,5 +123,5 @@ python governance/scripts/audit_release.py
 按 governance/rules/skill-governance.md 处理，不要直接改。先出 AP。
 写升级方案 / 你是 Agent A / 你是 Agent B 时同时读 governance/rules/upgrade-dual-agent.md。
 同意执行或执行升级才改技能。
-A 已经升级完毕 / 检查开发仓实际升级效果 / 检查升级效果 / 升级做完了核对一下 / 对照方案看改完没有：读 upgrade-dual-agent.md 的效果核对节。只按模板回复。不改技能正文，不改方案正文，不建 CR；写盘只允许核对单本身；方案已删则把文首结论一行补进该版已有回归报告后删核对单。除此以外改文件算失败。这不是 B 审核。
+A 已经升级完毕 / 检查开发仓实际升级效果 / 检查升级效果 / 升级做完了核对一下 / 对照方案看改完没有 / 审核一下升级结果 / 审核升级结果 / 已经升级完了：读 upgrade-dual-agent.md 的效果核对节。只按模板回复。查完之前不向人发文字。不改技能正文，不改方案正文，不建 CR；写盘只允许核对单本身；方案已删则把文首结论一行补进该版已有回归报告后删核对单。除此以外改文件算失败。这不是 B 审核。
 ```
