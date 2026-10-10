@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.0 — 2026-10-10
+
+目标：业务方案必须核对链路注释，逻辑变化时补日志，自审写出安全评估。B 每一轮用覆盖五格填实链路、注释、日志、安全和更好实现，空着不算一轮。
+
+- 改了 `SKILL.md`、`references/01-plan-review.md`、`README.md`、`examples/03-你是AgentA.md`、`examples/04-你是AgentB.md`、`examples/06-开始按方案执行.md`、`examples/README.md`、`tests/test_multireview_contract.py`、`VERSION`、`skill.json`
+- 没改 `references/gap-capture.md`、`governance/rules/`、触发短语、`examples/08-完整方案-登录与返参解密.md`
+- 链路以内对不上或不清楚的注释写进执行。逻辑有变化时补日志，不写口令、密钥、令牌、完整报文。自审要有安全评估。B 的一轮要有安全评估、反问和覆盖五格
+- 测了 `validate_skill.py`、`tests/run_smoke.py`、`pack.py --dry-run`。固定四问的当次结果在 `governance/regression-reports/RR-20261010-001.md`
+- 回滚：分发包回到 `governance/baselines/0.4.0/`，版本回到 0.4.0。基线一旦生成就不改、不删。发布包不提交
+
 ## 0.4.0 — 2026-10-09
 
 目标：业务方案必须写出回归验证和 bug修复验证。改完代码后按验收验证。执行里的代码一行一中文注释。
