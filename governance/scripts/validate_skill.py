@@ -173,6 +173,10 @@ def stale_version_hits(root: Path, prev: str, slug: str) -> list[str]:
             data.pop("schemaVersion", None)  # schema, not the skill version
             text = json.dumps(data, ensure_ascii=False)
         for n, line in enumerate(text.splitlines(), 1):
+            # The 0.6.0 review skeleton cites 0.5.2 fill rules by name.
+            # That citation is not a leftover version banner.
+            if "这五项的填实规则沿用 0.5.2：" in line:
+                continue
             if pat.search(line) or (zip_name and zip_name in line):
                 hits.append(f"{rel.as_posix()}:{n}")
     return hits

@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.6.0 — 2026-10-12
+
+目标：人同意出方案后就写十节，不必先指定审核人数。每名 Agent B 只在自己的别名章节里追加。可以执行之前要先独立推导、提问，并认可解释。未全部准许时，一次「开始按方案执行」不改代码。人没要求时不主动拉起子代理。升级方案的审核节必须写入文件并回读。
+
+- 改了 `SKILL.md`、`references/01-plan-review.md`、`README.md`、`skill.json`、`examples/02` 到 `examples/06`、`examples/README.md`、`tests/test_multireview_contract.py`、`tests/test_upgrade_effect_contract.py`、`tests/README.md`、`governance/rules/upgrade-dual-agent.md` 第 4 节第 3 步、`governance/templates/upgrade-plan.md` 末尾、`governance/scripts/validate_skill.py`、`VERSION`
+- 没改 `references/gap-capture.md`、`governance/rules/skill-governance.md`、`governance/templates/upgrade-effect.md`、五句触发、十节名称、`examples/01`、`examples/07`、`examples/08`
+- 填实规则原文引用 0.5.2。版本检查跳过这一句，以免把它当成旧版本号
+- 测了 `validate_skill.py`、`tests/run_smoke.py`、`pack.py --dry-run`。固定四问的当次结果在 `governance/regression-reports/RR-20261012-001.md`
+- 回滚：分发包回到 `governance/baselines/0.5.2/`，版本回到 0.5.2。基线一旦生成就不改、不删。发布包不提交。不推远程
+
 ## 0.5.2 — 2026-10-11
 
 目标：升级做完之后的核对，在同一会话里由另一个助手来做。对人只交一份九节编号清单。预期、范围、不改项和回归用例在删方案之前写进该版 CR 和 RR。

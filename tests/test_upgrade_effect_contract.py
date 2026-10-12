@@ -60,3 +60,15 @@ class UpgradeEffectContractTests(unittest.TestCase):
     def test_old_effect_headings_gone(self):
         for text in ("## 满足", "## 未满足", "## 方案外"):
             self.assertNotIn(text, self.effect, text)
+
+    def test_review_append_is_written_and_reread(self):
+        plan = _read("governance/templates/upgrade-plan.md")
+        for text in (
+            "不得只输出在对话回复里",
+            "追加后回读该文件",
+            "写入失败时，回复第一句是「未写入」加该文件路径。",
+        ):
+            self.assertIn(text, self.dual, text)
+            self.assertIn(text, plan, text)
+        self.assertIn("用编辑工具写入本文件末尾", plan)
+        self.assertNotIn("<!-- B 审核", plan)

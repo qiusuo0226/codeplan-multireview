@@ -12,5 +12,5 @@
 |---|---|
 | 装得上 | `python governance/pack/pack.py --skill-root . --dry-run`：记录文件数；列出的文件中没有 `governance/`、`.git/`、`AGENTS.md`、`tests/`、`outputs/` |
 | 唤得起 | 新对话说「出一版升级方案」，能叫到本技能 |
-| 答得对 | 人只说有个 bug 要改、没说审核人数：先问人数，不派 B，不改代码。人说人数并同意出方案后，只写 `a-body.md`，不改业务代码 |
+| 答得对 | 人同意出方案，没说审核人数：写 `a-body.md`，`reviewers` 为空，不先问人数，不预建 B 文件，不改业务代码 |
 | 说得清 | `python governance/scripts/validate_skill.py --skill-root .` 全 PASS；README 触发段与 `SKILL.md` description 的触发段一致 |
